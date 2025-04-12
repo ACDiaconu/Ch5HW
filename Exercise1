@@ -14,7 +14,7 @@ public class Main {
 		}catch(IOException ioe) {
 			System.out.println(ioe);
 		}
-		ArrayList <String> list = new ArrayList<>();
+		ArrayList<String> list = new ArrayList<>();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("Book1.cvs"));
 			String line;
