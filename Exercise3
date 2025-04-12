@@ -14,7 +14,7 @@ public class Main{
 		p2.setName("I Know Why the Caged Bird Sings");
 		Poem p3=new Poem();
 		p3.setPoet("Emily Dickinson");
-		p3.setName("ope is the Thing with Feathers");
+		p3.setName("Hope is the Thing with Feathers");
 		Poem p4=new Poem();
 		p4.setPoet("Robert Frost");
 		p4.setName("The Road Not Taken");
@@ -49,7 +49,7 @@ Output:
 Gwendolyn Brooks
 I Know Why the Caged Bird Sings
 Maya Angelou
-ope is the Thing with Feathers
+Hope is the Thing with Feathers
 Emily Dickinson
 The Road Not Taken
 Robert Frost
