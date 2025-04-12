@@ -1,1 +1,31 @@
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+public class Main{
+	public static void main(String [] args) {
+		Poem p1=new Poem();
+		p1.setPoet("Author1");
+		p1.setName("Poem1");
+		Poem p2=new Poem();
+		p2.setPoet("Author2");
+		p2.setName("Poem2");
+		Poem p3 = new Poem();
+		p3.setPoet("Author3");
+		p3.setName("Poem3");
+		ArrayList <Poem> list = new ArrayList<>();
+		list.add(p1);
+		list.add(p2);
+		list.add(p3);
+		try{
+			BufferedWriter bw=new BufferedWriter(new FileWriter("poems.txt"));
+				for(Poem x:list) {
+					bw.write(x.getName()+"\n");
+					bw.write(x.getPoet()+"\n");
+				}
+			bw.close();
+		}catch(IOException ioe){
+			System.out.println(ioe);
+		}
+	}
+}
