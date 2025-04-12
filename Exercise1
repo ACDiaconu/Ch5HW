@@ -1,1 +1,73 @@
+import java.io.IOException;
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+public class Main {
+	public static void main(String [] args) {
+		double sum,lowest,highest,average;
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("Book1.cvs"));
+			bw.write("1,2,3,4,5,6,7,8,9,10");
+			bw.close();
+		}catch(IOException ioe) {
+			System.out.println(ioe);
+		}
+		ArrayList <String> list = new ArrayList<>();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("Book1.cvs"));
+			String line;
+			while((line=br.readLine())!=null) {
+				list.add(line);
+			}
+			br.close();
+		}catch(IOException ioe) {
+			System.out.println(ioe);
+		}
+		System.out.print("Book1: ");
+		for(String x:list)
+			System.out.println(x);
+		String[] myString=list.get(0).split(",");
+		printSum(myString);
+		printLow(myString);
+		printHi(myString);
+		printAvg(myString);
+	}
+	public static void printSum(String[] myString) {
+		int sum = 0;
+		for(String x:myString)
+			sum+=Integer.parseInt(x);
+		System.out.println("The sum of the numbers is: "+sum);
+	}
+	public static void printLow(String[] myString) {
+		int low=Integer.parseInt(myString[0]);
+		for(String x:myString) 
+			if(low>Integer.parseInt(x)) 
+				low=Integer.parseInt(x);
+		System.out.println("The lowest number is: "+low);
+	}
+	public static void printHi(String[] myString) {
+		int hi=Integer.parseInt(myString[0]);
+		for(String x:myString) 
+			if(hi<Integer.parseInt(x)) 
+				hi=Integer.parseInt(x);
+		System.out.println("The highest number is : "+hi);
+	}
+	public static void printAvg(String[] myString) {
+		double count=0;
+		double total=0;
+		for(String x:myString)
+			total+=Integer.parseInt(x);
+			count++;
+		double avg=total/count;
+		System.out.println("The average of the numbers is: "+avg);
+	}
+}
 
+Output:
+Book1: 1,2,3,4,5,6,7,8,9,10
+The sum of the numbers is: 55
+The lowest number is: 1
+The highest number is : 10
+The average of the numbers is: 55.0
