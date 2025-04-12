@@ -1,1 +1,55 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+public class Main{
+	public static void main(String[] args) {
+		Poem p1=new Poem();
+		p1.setPoet("Gwendolyn Brooks");
+		p1.setName("We Real Cool");
+		Poem p2=new Poem();
+		p2.setPoet("Maya Angelou");
+		p2.setName("I Know Why the Caged Bird Sings");
+		Poem p3=new Poem();
+		p3.setPoet("Emily Dickinson");
+		p3.setName("ope is the Thing with Feathers");
+		Poem p4=new Poem();
+		p4.setPoet("Robert Frost");
+		p4.setName("The Road Not Taken");
+		ArrayList<Poem> list = new ArrayList<>();
+		list.add(p1);
+		list.add(p2);
+		list.add(p3);
+		list.add(p4);
+		try{
+			BufferedWriter bw=new BufferedWriter(new FileWriter("poem2.txt"));
+				for(Poem x:list) {
+					bw.write(x.getName()+"\n");
+					bw.write(x.getPoet()+"\n");
+				}
+			bw.close();
+		}catch(IOException ioe){
+			System.out.println(ioe);
+		}
+		try{
+			BufferedReader br=new BufferedReader(new FileReader("poem2.txt"));
+			String line;
+			while((line=br.readLine())!=null) {
+				System.out.println(line);
+			}
+		}catch(IOException ioe) {
+			System.out.println(ioe);
+		}
+	}
+}
 
+Output:
+Gwendolyn Brooks
+I Know Why the Caged Bird Sings
+Maya Angelou
+ope is the Thing with Feathers
+Emily Dickinson
+The Road Not Taken
+Robert Frost
